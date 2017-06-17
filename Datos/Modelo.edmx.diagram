@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c80e4b0e544f44a2925637e8bacb2d4f" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="Modelo.ALERTAS" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.DETALLE_RECETA" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ELIMINACIONES" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ENTREGAS" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ESTADOS_DETALLE" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.FORMATOS" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.FORMULARIO" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INGRESOS" Width="1.5" PointX="10.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.LABORATORIOS" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.MEDICAMENTOS" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.MOTIVO_ELIMINACION" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PACIENTES" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PACIENTES_TUTORES" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PARTIDAS" Width="1.5" PointX="5.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.RESERVAS" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TIPOS_USUARIOS" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TUTORES" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.USUARIOS" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <AssociationConnector Association="Modelo.FK_ALERTAS_RELATIONS_PACIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ALERTAS_RELATIONS_RESERVAS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_DETALLE__RELATIONS_ENTREGAS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_DETALLE__RELATIONS_ESTADOS_" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_DETALLE__RELATIONS_FORMULAR" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_DETALLE__RELATIONS_MEDICAME" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ELIMINAC_RELATIONS_MEDICAME" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ELIMINAC_RELATIONS_MOTIVO_E" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ELIMINAC_RELATIONS_PARTIDAS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ELIMINAC_RELATIONS_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ENTREGAS_RELATIONS_PACIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ENTREGAS_RELATIONS_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_MEDICAME_RELATIONS_FORMATOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_FORMULAR___USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_FORMULAR_RELATIONS_PACIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_INGRESOS_RELATIONS_MEDICAME" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_INGRESOS_RELATIONS_PARTIDAS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_INGRESOS_RELATIONS_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_MEDICAME_RELATIONS_LABORATO" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_PARTIDAS_RELATIONS_MEDICAME" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_RESERVAS_RELATIONS_MEDICAME" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_PACIENTE_RELATIONS_PACIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_RESERVAS_RELATIONS_PACIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_PACIENTE_RELATIONS_TUTORES" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_RESERVAS_RELATIONS_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_USUARIOS_RELATIONS_TIPOS_US" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

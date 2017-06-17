@@ -1,0 +1,10 @@
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\bin\Debug\Negocio.dll.config
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\bin\Debug\Negocio.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\bin\Debug\Negocio.pdb
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\bin\Debug\EntityFramework.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\bin\Debug\EntityFramework.xml
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\obj\Debug\Negocio.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\obj\Debug\Negocio.pdb
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\bin\Debug\Datos2.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Negocio\bin\Debug\Datos2.pdb

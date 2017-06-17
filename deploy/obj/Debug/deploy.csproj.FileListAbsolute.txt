@@ -1,0 +1,12 @@
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\deploy.exe.config
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\deploy.exe
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\deploy.pdb
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\Negocio.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\EntityFramework.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\Negocio.pdb
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\EntityFramework.xml
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\obj\Debug\deploy.csprojResolveAssemblyReference.cache
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\obj\Debug\deploy.exe
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\obj\Debug\deploy.pdb
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\Datos2.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\deploy\bin\Debug\Datos2.pdb

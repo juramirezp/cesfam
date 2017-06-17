@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ALERTAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PAC_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RES_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA" Type="DateTime" Precision="6" />
+    <NavigationProperty Name="PACIENTES" Relationship="Self.FK_ALERTAS_RELATIONS_PACIENTE" FromRole="ALERTAS" ToRole="PACIENTES" />
+    <NavigationProperty Name="RESERVAS" Relationship="Self.FK_ALERTAS_RELATIONS_RESERVAS" FromRole="ALERTAS" ToRole="RESERVAS" />
+  </EntityType>
+  <EntityType Name="DETALLE_RECETA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FOR_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MED_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ENT_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="EST_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DOSIS" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DIAS" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="LAPSO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ENTREGAS" Relationship="Self.FK_DETALLE__RELATIONS_ENTREGAS" FromRole="DETALLE_RECETA" ToRole="ENTREGAS" />
+    <NavigationProperty Name="ESTADOS_DETALLE" Relationship="Self.FK_DETALLE__RELATIONS_ESTADOS_" FromRole="DETALLE_RECETA" ToRole="ESTADOS_DETALLE" />
+    <NavigationProperty Name="FORMULARIO" Relationship="Self.FK_DETALLE__RELATIONS_FORMULAR" FromRole="DETALLE_RECETA" ToRole="FORMULARIO" />
+    <NavigationProperty Name="MEDICAMENTOS" Relationship="Self.FK_DETALLE__RELATIONS_MEDICAME" FromRole="DETALLE_RECETA" ToRole="MEDICAMENTOS" />
+  </EntityType>
+  <EntityType Name="ELIMINACIONES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USU_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MOT_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MED_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PAR_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA" Type="DateTime" Precision="6" />
+    <NavigationProperty Name="MEDICAMENTOS" Relationship="Self.FK_ELIMINAC_RELATIONS_MEDICAME" FromRole="ELIMINACIONES" ToRole="MEDICAMENTOS" />
+    <NavigationProperty Name="MOTIVO_ELIMINACION" Relationship="Self.FK_ELIMINAC_RELATIONS_MOTIVO_E" FromRole="ELIMINACIONES" ToRole="MOTIVO_ELIMINACION" />
+    <NavigationProperty Name="PARTIDAS" Relationship="Self.FK_ELIMINAC_RELATIONS_PARTIDAS" FromRole="ELIMINACIONES" ToRole="PARTIDAS" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK_ELIMINAC_RELATIONS_USUARIOS" FromRole="ELIMINACIONES" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="ENTREGAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USU_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PAC_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA" Type="DateTime" Precision="6" />
+    <NavigationProperty Name="DETALLE_RECETA" Relationship="Self.FK_DETALLE__RELATIONS_ENTREGAS" FromRole="ENTREGAS" ToRole="DETALLE_RECETA" />
+    <NavigationProperty Name="PACIENTES" Relationship="Self.FK_ENTREGAS_RELATIONS_PACIENTE" FromRole="ENTREGAS" ToRole="PACIENTES" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK_ENTREGAS_RELATIONS_USUARIOS" FromRole="ENTREGAS" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="ESTADOS_DETALLE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DETALLE_RECETA" Relationship="Self.FK_DETALLE__RELATIONS_ESTADOS_" FromRole="ESTADOS_DETALLE" ToRole="DETALLE_RECETA" />
+  </EntityType>
+  <EntityType Name="FORMATOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MEDICAMENTOS" Relationship="Self.FK_MEDICAME_RELATIONS_FORMATOS" FromRole="FORMATOS" ToRole="MEDICAMENTOS" />
+  </EntityType>
+  <EntityType Name="FORMULARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USU_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PAC_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA" Type="DateTime" Precision="6" />
+    <NavigationProperty Name="DETALLE_RECETA" Relationship="Self.FK_DETALLE__RELATIONS_FORMULAR" FromRole="FORMULARIO" ToRole="DETALLE_RECETA" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK_FORMULAR___USUARIOS" FromRole="FORMULARIO" ToRole="USUARIOS" />
+    <NavigationProperty Name="PACIENTES" Relationship="Self.FK_FORMULAR_RELATIONS_PACIENTE" FromRole="FORMULARIO" ToRole="PACIENTES" />
+  </EntityType>
+  <EntityType Name="INGRESOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MED_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PAR_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="USU_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA" Type="DateTime" Precision="6" />
+    <NavigationProperty Name="MEDICAMENTOS" Relationship="Self.FK_INGRESOS_RELATIONS_MEDICAME" FromRole="INGRESOS" ToRole="MEDICAMENTOS" />
+    <NavigationProperty Name="PARTIDAS" Relationship="Self.FK_INGRESOS_RELATIONS_PARTIDAS" FromRole="INGRESOS" ToRole="PARTIDAS" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK_INGRESOS_RELATIONS_USUARIOS" FromRole="INGRESOS" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="LABORATORIOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MEDICAMENTOS" Relationship="Self.FK_MEDICAME_RELATIONS_LABORATO" FromRole="LABORATORIOS" ToRole="MEDICAMENTOS" />
+  </EntityType>
+  <EntityType Name="MEDICAMENTOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="LAB_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FOR_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTENIDO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="GRAMAJE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="STOCK" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="COMPONENTES" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DETALLE_RECETA" Relationship="Self.FK_DETALLE__RELATIONS_MEDICAME" FromRole="MEDICAMENTOS" ToRole="DETALLE_RECETA" />
+    <NavigationProperty Name="ELIMINACIONES" Relationship="Self.FK_ELIMINAC_RELATIONS_MEDICAME" FromRole="MEDICAMENTOS" ToRole="ELIMINACIONES" />
+    <NavigationProperty Name="FORMATOS" Relationship="Self.FK_MEDICAME_RELATIONS_FORMATOS" FromRole="MEDICAMENTOS" ToRole="FORMATOS" />
+    <NavigationProperty Name="INGRESOS" Relationship="Self.FK_INGRESOS_RELATIONS_MEDICAME" FromRole="MEDICAMENTOS" ToRole="INGRESOS" />
+    <NavigationProperty Name="LABORATORIOS" Relationship="Self.FK_MEDICAME_RELATIONS_LABORATO" FromRole="MEDICAMENTOS" ToRole="LABORATORIOS" />
+    <NavigationProperty Name="PARTIDAS" Relationship="Self.FK_PARTIDAS_RELATIONS_MEDICAME" FromRole="MEDICAMENTOS" ToRole="PARTIDAS" />
+    <NavigationProperty Name="RESERVAS" Relationship="Self.FK_RESERVAS_RELATIONS_MEDICAME" FromRole="MEDICAMENTOS" ToRole="RESERVAS" />
+  </EntityType>
+  <EntityType Name="MOTIVO_ELIMINACION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ELIMINACIONES" Relationship="Self.FK_ELIMINAC_RELATIONS_MOTIVO_E" FromRole="MOTIVO_ELIMINACION" ToRole="ELIMINACIONES" />
+  </EntityType>
+  <EntityType Name="PACIENTES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COMUNA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NACIMIENTO" Type="DateTime" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ALERTAS" Relationship="Self.FK_ALERTAS_RELATIONS_PACIENTE" FromRole="PACIENTES" ToRole="ALERTAS" />
+    <NavigationProperty Name="ENTREGAS" Relationship="Self.FK_ENTREGAS_RELATIONS_PACIENTE" FromRole="PACIENTES" ToRole="ENTREGAS" />
+    <NavigationProperty Name="FORMULARIO" Relationship="Self.FK_FORMULAR_RELATIONS_PACIENTE" FromRole="PACIENTES" ToRole="FORMULARIO" />
+    <NavigationProperty Name="PACIENTES_TUTORES" Relationship="Self.FK_PACIENTE_RELATIONS_PACIENTE" FromRole="PACIENTES" ToRole="PACIENTES_TUTORES" />
+    <NavigationProperty Name="RESERVAS" Relationship="Self.FK_RESERVAS_RELATIONS_PACIENTE" FromRole="PACIENTES" ToRole="RESERVAS" />
+  </EntityType>
+  <EntityType Name="PACIENTES_TUTORES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TUT_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PAC_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PARENTESCO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PACIENTES" Relationship="Self.FK_PACIENTE_RELATIONS_PACIENTE" FromRole="PACIENTES_TUTORES" ToRole="PACIENTES" />
+    <NavigationProperty Name="TUTORES" Relationship="Self.FK_PACIENTE_RELATIONS_TUTORES" FromRole="PACIENTES_TUTORES" ToRole="TUTORES" />
+  </EntityType>
+  <EntityType Name="PARTIDAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MED_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA_ELAB" Type="DateTime" />
+    <Property Name="FECHA_VENC" Type="DateTime" />
+    <Property Name="FECHA" Type="DateTime" Precision="6" />
+    <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ELIMINACIONES" Relationship="Self.FK_ELIMINAC_RELATIONS_PARTIDAS" FromRole="PARTIDAS" ToRole="ELIMINACIONES" />
+    <NavigationProperty Name="INGRESOS" Relationship="Self.FK_INGRESOS_RELATIONS_PARTIDAS" FromRole="PARTIDAS" ToRole="INGRESOS" />
+    <NavigationProperty Name="MEDICAMENTOS" Relationship="Self.FK_PARTIDAS_RELATIONS_MEDICAME" FromRole="PARTIDAS" ToRole="MEDICAMENTOS" />
+  </EntityType>
+  <EntityType Name="RESERVAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PAC_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MED_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="USU_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA" Type="DateTime" Precision="6" />
+    <Property Name="ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ALERTAS" Relationship="Self.FK_ALERTAS_RELATIONS_RESERVAS" FromRole="RESERVAS" ToRole="ALERTAS" />
+    <NavigationProperty Name="MEDICAMENTOS" Relationship="Self.FK_RESERVAS_RELATIONS_MEDICAME" FromRole="RESERVAS" ToRole="MEDICAMENTOS" />
+    <NavigationProperty Name="PACIENTES" Relationship="Self.FK_RESERVAS_RELATIONS_PACIENTE" FromRole="RESERVAS" ToRole="PACIENTES" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK_RESERVAS_RELATIONS_USUARIOS" FromRole="RESERVAS" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="TIPOS_USUARIOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK_USUARIOS_RELATIONS_TIPOS_US" FromRole="TIPOS_USUARIOS" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="TUTORES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COMUNA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PACIENTES_TUTORES" Relationship="Self.FK_PACIENTE_RELATIONS_TUTORES" FromRole="TUTORES" ToRole="PACIENTES_TUTORES" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIP_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PASS" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ELIMINACIONES" Relationship="Self.FK_ELIMINAC_RELATIONS_USUARIOS" FromRole="USUARIOS" ToRole="ELIMINACIONES" />
+    <NavigationProperty Name="ENTREGAS" Relationship="Self.FK_ENTREGAS_RELATIONS_USUARIOS" FromRole="USUARIOS" ToRole="ENTREGAS" />
+    <NavigationProperty Name="FORMULARIO" Relationship="Self.FK_FORMULAR___USUARIOS" FromRole="USUARIOS" ToRole="FORMULARIO" />
+    <NavigationProperty Name="INGRESOS" Relationship="Self.FK_INGRESOS_RELATIONS_USUARIOS" FromRole="USUARIOS" ToRole="INGRESOS" />
+    <NavigationProperty Name="RESERVAS" Relationship="Self.FK_RESERVAS_RELATIONS_USUARIOS" FromRole="USUARIOS" ToRole="RESERVAS" />
+    <NavigationProperty Name="TIPOS_USUARIOS" Relationship="Self.FK_USUARIOS_RELATIONS_TIPOS_US" FromRole="USUARIOS" ToRole="TIPOS_USUARIOS" />
+  </EntityType>
+  <Association Name="FK_ALERTAS_RELATIONS_PACIENTE">
+    <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="0..1" />
+    <End Role="ALERTAS" Type="Self.ALERTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ALERTAS">
+        <PropertyRef Name="PAC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ALERTAS_RELATIONS_RESERVAS">
+    <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="0..1" />
+    <End Role="ALERTAS" Type="Self.ALERTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ALERTAS">
+        <PropertyRef Name="RES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__RELATIONS_ENTREGAS">
+    <End Role="ENTREGAS" Type="Self.ENTREGAS" Multiplicity="0..1" />
+    <End Role="DETALLE_RECETA" Type="Self.DETALLE_RECETA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENTREGAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RECETA">
+        <PropertyRef Name="ENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__RELATIONS_ESTADOS_">
+    <End Role="ESTADOS_DETALLE" Type="Self.ESTADOS_DETALLE" Multiplicity="0..1" />
+    <End Role="DETALLE_RECETA" Type="Self.DETALLE_RECETA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS_DETALLE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RECETA">
+        <PropertyRef Name="EST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__RELATIONS_FORMULAR">
+    <End Role="FORMULARIO" Type="Self.FORMULARIO" Multiplicity="0..1" />
+    <End Role="DETALLE_RECETA" Type="Self.DETALLE_RECETA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMULARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RECETA">
+        <PropertyRef Name="FOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__RELATIONS_MEDICAME">
+    <End Role="MEDICAMENTOS" Type="Self.MEDICAMENTOS" Multiplicity="0..1" />
+    <End Role="DETALLE_RECETA" Type="Self.DETALLE_RECETA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RECETA">
+        <PropertyRef Name="MED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ELIMINAC_RELATIONS_MEDICAME">
+    <End Role="MEDICAMENTOS" Type="Self.MEDICAMENTOS" Multiplicity="0..1" />
+    <End Role="ELIMINACIONES" Type="Self.ELIMINACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ELIMINACIONES">
+        <PropertyRef Name="MED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ELIMINAC_RELATIONS_MOTIVO_E">
+    <End Role="MOTIVO_ELIMINACION" Type="Self.MOTIVO_ELIMINACION" Multiplicity="0..1" />
+    <End Role="ELIMINACIONES" Type="Self.ELIMINACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOTIVO_ELIMINACION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ELIMINACIONES">
+        <PropertyRef Name="MOT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ELIMINAC_RELATIONS_PARTIDAS">
+    <End Role="PARTIDAS" Type="Self.PARTIDAS" Multiplicity="0..1" />
+    <End Role="ELIMINACIONES" Type="Self.ELIMINACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARTIDAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ELIMINACIONES">
+        <PropertyRef Name="PAR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ELIMINAC_RELATIONS_USUARIOS">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="ELIMINACIONES" Type="Self.ELIMINACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ELIMINACIONES">
+        <PropertyRef Name="USU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTREGAS_RELATIONS_PACIENTE">
+    <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="0..1" />
+    <End Role="ENTREGAS" Type="Self.ENTREGAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ENTREGAS">
+        <PropertyRef Name="PAC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTREGAS_RELATIONS_USUARIOS">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="ENTREGAS" Type="Self.ENTREGAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ENTREGAS">
+        <PropertyRef Name="USU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEDICAME_RELATIONS_FORMATOS">
+    <End Role="FORMATOS" Type="Self.FORMATOS" Multiplicity="0..1" />
+    <End Role="MEDICAMENTOS" Type="Self.MEDICAMENTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMATOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MEDICAMENTOS">
+        <PropertyRef Name="FOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FORMULAR___USUARIOS">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="FORMULARIO" Type="Self.FORMULARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FORMULARIO">
+        <PropertyRef Name="USU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FORMULAR_RELATIONS_PACIENTE">
+    <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="0..1" />
+    <End Role="FORMULARIO" Type="Self.FORMULARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FORMULARIO">
+        <PropertyRef Name="PAC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INGRESOS_RELATIONS_MEDICAME">
+    <End Role="MEDICAMENTOS" Type="Self.MEDICAMENTOS" Multiplicity="0..1" />
+    <End Role="INGRESOS" Type="Self.INGRESOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="INGRESOS">
+        <PropertyRef Name="MED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INGRESOS_RELATIONS_PARTIDAS">
+    <End Role="PARTIDAS" Type="Self.PARTIDAS" Multiplicity="0..1" />
+    <End Role="INGRESOS" Type="Self.INGRESOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARTIDAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="INGRESOS">
+        <PropertyRef Name="PAR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INGRESOS_RELATIONS_USUARIOS">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="INGRESOS" Type="Self.INGRESOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="INGRESOS">
+        <PropertyRef Name="USU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEDICAME_RELATIONS_LABORATO">
+    <End Role="LABORATORIOS" Type="Self.LABORATORIOS" Multiplicity="0..1" />
+    <End Role="MEDICAMENTOS" Type="Self.MEDICAMENTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LABORATORIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MEDICAMENTOS">
+        <PropertyRef Name="LAB_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARTIDAS_RELATIONS_MEDICAME">
+    <End Role="MEDICAMENTOS" Type="Self.MEDICAMENTOS" Multiplicity="0..1" />
+    <End Role="PARTIDAS" Type="Self.PARTIDAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PARTIDAS">
+        <PropertyRef Name="MED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESERVAS_RELATIONS_MEDICAME">
+    <End Role="MEDICAMENTOS" Type="Self.MEDICAMENTOS" Multiplicity="0..1" />
+    <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RESERVAS">
+        <PropertyRef Name="MED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PACIENTE_RELATIONS_PACIENTE">
+    <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="0..1" />
+    <End Role="PACIENTES_TUTORES" Type="Self.PACIENTES_TUTORES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PACIENTES_TUTORES">
+        <PropertyRef Name="PAC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESERVAS_RELATIONS_PACIENTE">
+    <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="0..1" />
+    <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RESERVAS">
+        <PropertyRef Name="PAC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PACIENTE_RELATIONS_TUTORES">
+    <End Role="TUTORES" Type="Self.TUTORES" Multiplicity="0..1" />
+    <End Role="PACIENTES_TUTORES" Type="Self.PACIENTES_TUTORES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUTORES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PACIENTES_TUTORES">
+        <PropertyRef Name="TUT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESERVAS_RELATIONS_USUARIOS">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RESERVAS">
+        <PropertyRef Name="USU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_RELATIONS_TIPOS_US">
+    <End Role="TIPOS_USUARIOS" Type="Self.TIPOS_USUARIOS" Multiplicity="0..1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOS_USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="TIP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entidades" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ALERTAS" EntityType="Self.ALERTAS" />
+    <EntitySet Name="DETALLE_RECETA" EntityType="Self.DETALLE_RECETA" />
+    <EntitySet Name="ELIMINACIONES" EntityType="Self.ELIMINACIONES" />
+    <EntitySet Name="ENTREGAS" EntityType="Self.ENTREGAS" />
+    <EntitySet Name="ESTADOS_DETALLE" EntityType="Self.ESTADOS_DETALLE" />
+    <EntitySet Name="FORMATOS" EntityType="Self.FORMATOS" />
+    <EntitySet Name="FORMULARIO" EntityType="Self.FORMULARIO" />
+    <EntitySet Name="INGRESOS" EntityType="Self.INGRESOS" />
+    <EntitySet Name="LABORATORIOS" EntityType="Self.LABORATORIOS" />
+    <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" />
+    <EntitySet Name="MOTIVO_ELIMINACION" EntityType="Self.MOTIVO_ELIMINACION" />
+    <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" />
+    <EntitySet Name="PACIENTES_TUTORES" EntityType="Self.PACIENTES_TUTORES" />
+    <EntitySet Name="PARTIDAS" EntityType="Self.PARTIDAS" />
+    <EntitySet Name="RESERVAS" EntityType="Self.RESERVAS" />
+    <EntitySet Name="TIPOS_USUARIOS" EntityType="Self.TIPOS_USUARIOS" />
+    <EntitySet Name="TUTORES" EntityType="Self.TUTORES" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+    <AssociationSet Name="FK_ALERTAS_RELATIONS_PACIENTE" Association="Self.FK_ALERTAS_RELATIONS_PACIENTE">
+      <End Role="PACIENTES" EntitySet="PACIENTES" />
+      <End Role="ALERTAS" EntitySet="ALERTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ALERTAS_RELATIONS_RESERVAS" Association="Self.FK_ALERTAS_RELATIONS_RESERVAS">
+      <End Role="RESERVAS" EntitySet="RESERVAS" />
+      <End Role="ALERTAS" EntitySet="ALERTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__RELATIONS_ENTREGAS" Association="Self.FK_DETALLE__RELATIONS_ENTREGAS">
+      <End Role="ENTREGAS" EntitySet="ENTREGAS" />
+      <End Role="DETALLE_RECETA" EntitySet="DETALLE_RECETA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__RELATIONS_ESTADOS_" Association="Self.FK_DETALLE__RELATIONS_ESTADOS_">
+      <End Role="ESTADOS_DETALLE" EntitySet="ESTADOS_DETALLE" />
+      <End Role="DETALLE_RECETA" EntitySet="DETALLE_RECETA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__RELATIONS_FORMULAR" Association="Self.FK_DETALLE__RELATIONS_FORMULAR">
+      <End Role="FORMULARIO" EntitySet="FORMULARIO" />
+      <End Role="DETALLE_RECETA" EntitySet="DETALLE_RECETA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__RELATIONS_MEDICAME" Association="Self.FK_DETALLE__RELATIONS_MEDICAME">
+      <End Role="MEDICAMENTOS" EntitySet="MEDICAMENTOS" />
+      <End Role="DETALLE_RECETA" EntitySet="DETALLE_RECETA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ELIMINAC_RELATIONS_MEDICAME" Association="Self.FK_ELIMINAC_RELATIONS_MEDICAME">
+      <End Role="MEDICAMENTOS" EntitySet="MEDICAMENTOS" />
+      <End Role="ELIMINACIONES" EntitySet="ELIMINACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ELIMINAC_RELATIONS_MOTIVO_E" Association="Self.FK_ELIMINAC_RELATIONS_MOTIVO_E">
+      <End Role="MOTIVO_ELIMINACION" EntitySet="MOTIVO_ELIMINACION" />
+      <End Role="ELIMINACIONES" EntitySet="ELIMINACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ELIMINAC_RELATIONS_PARTIDAS" Association="Self.FK_ELIMINAC_RELATIONS_PARTIDAS">
+      <End Role="PARTIDAS" EntitySet="PARTIDAS" />
+      <End Role="ELIMINACIONES" EntitySet="ELIMINACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ELIMINAC_RELATIONS_USUARIOS" Association="Self.FK_ELIMINAC_RELATIONS_USUARIOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="ELIMINACIONES" EntitySet="ELIMINACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTREGAS_RELATIONS_PACIENTE" Association="Self.FK_ENTREGAS_RELATIONS_PACIENTE">
+      <End Role="PACIENTES" EntitySet="PACIENTES" />
+      <End Role="ENTREGAS" EntitySet="ENTREGAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTREGAS_RELATIONS_USUARIOS" Association="Self.FK_ENTREGAS_RELATIONS_USUARIOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="ENTREGAS" EntitySet="ENTREGAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MEDICAME_RELATIONS_FORMATOS" Association="Self.FK_MEDICAME_RELATIONS_FORMATOS">
+      <End Role="FORMATOS" EntitySet="FORMATOS" />
+      <End Role="MEDICAMENTOS" EntitySet="MEDICAMENTOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FORMULAR___USUARIOS" Association="Self.FK_FORMULAR___USUARIOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="FORMULARIO" EntitySet="FORMULARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FORMULAR_RELATIONS_PACIENTE" Association="Self.FK_FORMULAR_RELATIONS_PACIENTE">
+      <End Role="PACIENTES" EntitySet="PACIENTES" />
+      <End Role="FORMULARIO" EntitySet="FORMULARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INGRESOS_RELATIONS_MEDICAME" Association="Self.FK_INGRESOS_RELATIONS_MEDICAME">
+      <End Role="MEDICAMENTOS" EntitySet="MEDICAMENTOS" />
+      <End Role="INGRESOS" EntitySet="INGRESOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INGRESOS_RELATIONS_PARTIDAS" Association="Self.FK_INGRESOS_RELATIONS_PARTIDAS">
+      <End Role="PARTIDAS" EntitySet="PARTIDAS" />
+      <End Role="INGRESOS" EntitySet="INGRESOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INGRESOS_RELATIONS_USUARIOS" Association="Self.FK_INGRESOS_RELATIONS_USUARIOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="INGRESOS" EntitySet="INGRESOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MEDICAME_RELATIONS_LABORATO" Association="Self.FK_MEDICAME_RELATIONS_LABORATO">
+      <End Role="LABORATORIOS" EntitySet="LABORATORIOS" />
+      <End Role="MEDICAMENTOS" EntitySet="MEDICAMENTOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARTIDAS_RELATIONS_MEDICAME" Association="Self.FK_PARTIDAS_RELATIONS_MEDICAME">
+      <End Role="MEDICAMENTOS" EntitySet="MEDICAMENTOS" />
+      <End Role="PARTIDAS" EntitySet="PARTIDAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESERVAS_RELATIONS_MEDICAME" Association="Self.FK_RESERVAS_RELATIONS_MEDICAME">
+      <End Role="MEDICAMENTOS" EntitySet="MEDICAMENTOS" />
+      <End Role="RESERVAS" EntitySet="RESERVAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PACIENTE_RELATIONS_PACIENTE" Association="Self.FK_PACIENTE_RELATIONS_PACIENTE">
+      <End Role="PACIENTES" EntitySet="PACIENTES" />
+      <End Role="PACIENTES_TUTORES" EntitySet="PACIENTES_TUTORES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESERVAS_RELATIONS_PACIENTE" Association="Self.FK_RESERVAS_RELATIONS_PACIENTE">
+      <End Role="PACIENTES" EntitySet="PACIENTES" />
+      <End Role="RESERVAS" EntitySet="RESERVAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PACIENTE_RELATIONS_TUTORES" Association="Self.FK_PACIENTE_RELATIONS_TUTORES">
+      <End Role="TUTORES" EntitySet="TUTORES" />
+      <End Role="PACIENTES_TUTORES" EntitySet="PACIENTES_TUTORES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESERVAS_RELATIONS_USUARIOS" Association="Self.FK_RESERVAS_RELATIONS_USUARIOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="RESERVAS" EntitySet="RESERVAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_RELATIONS_TIPOS_US" Association="Self.FK_USUARIOS_RELATIONS_TIPOS_US">
+      <End Role="TIPOS_USUARIOS" EntitySet="TIPOS_USUARIOS" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

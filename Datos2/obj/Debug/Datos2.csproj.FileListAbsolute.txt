@@ -1,0 +1,8 @@
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\bin\Debug\Datos2.dll.config
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\bin\Debug\Datos2.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\bin\Debug\Datos2.pdb
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\bin\Debug\EntityFramework.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\bin\Debug\EntityFramework.xml
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\obj\Debug\Datos2.csprojResolveAssemblyReference.cache
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\obj\Debug\Datos2.dll
+C:\wamp64\www\webs\cesfamnueva\CesfamNueva\Datos2\obj\Debug\Datos2.pdb
